@@ -2,6 +2,8 @@
 
 Explore the urban tree canopy of Round Rock, Texas, remotely with this interactive map. Inspired by my summer internship on Monarch Tree Digitization, this app uses publicly available LiDAR data from the City of Round Rock to filter vegetation points. Built with React, ArcGIS Maps SDK, and Google Street View, it combines aerial imagery, canopy LiDAR, and street-level views, allowing anyone to explore trees without fieldwork.
 
+[Live Demo✨](https://cat-grep.github.io/RRTX_UrbanCanopyExplorer/)
+
 ## Features
 
 - **3D WebScene**  
@@ -53,10 +55,18 @@ RRTX_UrbanCanopyExplorer/
 └─ package.json           # Project metadata and dependencies
 ```
 
-## Acknowledgements
+## Resources
+
 - **LiDAR data and imagery**
 [Williamson County - LiDAR, Contour, and Orthoimagery Request](https://wilcomaps.wilco.org/vertigisstudio/web/?app=890fe4cc2634486ba1cd03a552c54aab)
 - **Mapping SDK**
 [ArcGIS Maps SDK for JavaScript](https://developers.arcgis.com/javascript/latest/)
 - **Street View API**
 [Google Maps JavaScript API – Street View](https://developers.google.com/maps/documentation/javascript/streetview)
+
+## Contact
+
+**Eugenie Huang**  
+Master’s Student in Cartography & Geographic Information Systems  
+University of Wisconsin–Madison  
+huang674@wisc.edu  
