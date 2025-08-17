@@ -11,7 +11,7 @@ export default function App() {
     const viewDivRef = useRef(null);
     const viewRef = useRef(null);
 
-    const [svPos, setSvPos] = useState({ lat: 37.86926, lng: -122.254811 });
+    const [svPos, setSvPos] = useState({ lat: 30.509862, lng: -97.678003 });
 
     // dot layer/graphic
     const dotLayerRef = useRef(null);

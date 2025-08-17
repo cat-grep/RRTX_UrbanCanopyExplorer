@@ -24,9 +24,7 @@ export default function StreetViewPanel({ position, onChange }) {
         googleRef.current = google;
 
         panoRef.current = new google.maps.StreetViewPanorama(panoDivRef.current, {
-          position: position || { lat: 30.509388, lng: -97.679721 }, 
-          //30.509388262176845, -97.67972179833342
-          //lat: 37.86926, lng: -122.254811
+          position: position || { lat: 30.509862, lng: -97.678003 }, 
           zoom: 1,
           motionTracking: false,
           addressControl: true,
