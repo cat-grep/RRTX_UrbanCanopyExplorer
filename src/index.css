@@ -1,0 +1,46 @@
+@import "https://js.arcgis.com/calcite-components/3.2.1/calcite.css";
+@import "https://js.arcgis.com/4.33/@arcgis/core/assets/esri/themes/light/main.css";
+@import "https://js.arcgis.com/4.33/map-components/main.css";
+
+html, body, #root { height: 100%; margin: 0; }
+
+.app {
+  display: grid;
+  grid-template-rows: 56px 1fr; /* banner height + content */
+  height: 100vh;
+}
+
+/* Top banner */
+.banner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* left spacer | brand | right spacer */
+  align-items: center;
+  height: 56px;
+  padding: 0 16px;
+  background: #e3e3e3;
+  color: #003366;
+  border-bottom: 1px solid #e3e3e3;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo { justify-self: start; }
+.brand { justify-self: center; font-weight: 800; }
+.brandimg { height: 40px; display: block; }
+
+.banner, .banner .brand {
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Two panes below the banner */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 0; /* allow children to size correctly */
+}
+
+/* Ensure children fill available space */
+.mapPane, .svPane { min-height: 0; }
+.svPane, .svPane > div { width: 100%; height: 100%; }
+
