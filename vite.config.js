@@ -8,6 +8,5 @@ export default defineConfig({
   },
   build: {
     outDir: "dist",
-    base: "/<REPO_NAME>/",
   },
 });
