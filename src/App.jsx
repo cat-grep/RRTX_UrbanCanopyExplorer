@@ -23,10 +23,10 @@ export default function App() {
         symbolLayers: [
             {
                 type: "object",
-                resource: { primitive: "cylinder" }, // options: "cylinder", "cone", "cube", "sphere"...
-                height: 20,        // meters
-                width: 5,        // meters (diameter in x)
-                depth: 5,        // meters (diameter in y)
+                resource: { primitive: "diamond" }, // options: "cylinder", "cone", "cube", "sphere"...
+                height: 25,        // meters
+                width: 10,        // meters (diameter in x)
+                depth: 10,        // meters (diameter in y)
                 material: { color: [0, 122, 255, 1] },
                 anchor: "bottom",  // sit the pillar on the ground
                 castShadows: true,
