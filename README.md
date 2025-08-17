@@ -1,21 +1,26 @@
 # Round Rock TX Urban Canopy Explorer
 
-React app that pairs an ArcGIS 3D WebScene with Google Street View.
+Explore the urban tree canopy of Round Rock, Texas, remotely with this interactive map. Inspired by my summer internship on Monarch Tree Digitization, this app uses publicly available LiDAR data from the City of Round Rock to filter vegetation points. Built with React, ArcGIS Maps SDK, and Google Street View, it combines aerial imagery, canopy LiDAR, and street-level views, allowing anyone to explore trees without fieldwork.
 
 ## Features
-* 3D **WebScene** (ArcGIS Maps SDK 4.33)
-* **Street View** panel (Google Maps JS API)
-* **Two-way** sync
-    * Scene click → Street View moves & marker updates
-    * Street View move → marker moves & 3D map pans to it
+
+- **3D WebScene**  
+  Built with ArcGIS Maps SDK 4.33, providing an interactive 3D view of the urban canopy.
+
+- **Street View panel**  
+  Powered by Google Maps JavaScript API, enabling street-level exploration.
+
+- **Two-way sync**  
+  - Clicking on the 3D scene updates the Street View marker and camera.  
+  - Moving in Street View pans the 3D map and updates the marker position.
 
 ## Quick start
 ### Prerequisites
-* Node 18+ and npm
-* Google Maps JavaScript API key with billing enabled
+- Node 18+ and npm
+- Google Maps JavaScript API key with billing enabled
 
 #### 1) Install deps
-```
+```bash
 npm install
 # If starting fresh:
 # npm i react react-dom vite
@@ -25,31 +30,33 @@ npm install
 #### 2) Add your API key
 
 Create `./.env.local` at the project root:
-```
+```config
 VITE_GOOGLE_MAPS_API_KEY=YOUR_GOOGLE_MAPS_API_KEY
 ```
 
 After adding/changing .env.local, restart npm run dev.
 
 #### 3) Run
-```
+```bash
 npm run dev
 ```
 
 ## Project structure
 ```
-your-app/
-├─ index.html
+RRTX_UrbanCanopyExplorer/
+├─ index.html             # HTML template
 ├─ src/
-│  ├─ index.jsx            # entry (React root)
-│  ├─ App.jsx              # SceneView + layout + marker logic
-│  ├─ StreetViewPanel.jsx  # Street View loader & events
-│  └─ index.css            # banner/layout styles 
-└─ package.json
+│  ├─ index.jsx           # React root entry
+│  ├─ App.jsx             # SceneView, layout, and marker logic
+│  ├─ StreetViewPanel.jsx # Street View loader & events
+│  └─ index.css           # Layout and banner styles
+└─ package.json           # Project metadata and dependencies
 ```
 
 ## Acknowledgements
-
+- **LiDAR data and imagery**
+[Williamson County - LiDAR, Contour, and Orthoimagery Request](https://wilcomaps.wilco.org/vertigisstudio/web/?app=890fe4cc2634486ba1cd03a552c54aab)
+- **Mapping SDK**
 [ArcGIS Maps SDK for JavaScript](https://developers.arcgis.com/javascript/latest/)
-
+- **Street View API**
 [Google Maps JavaScript API – Street View](https://developers.google.com/maps/documentation/javascript/streetview)
