@@ -28,9 +28,6 @@ Inspired by my summer internship on Monarch Tree Digitization, this app filters 
 #### 1) Install deps
 ```bash
 npm install
-# If starting fresh:
-# npm i react react-dom vite
-# npm i @arcgis/core @googlemaps/js-api-loader 
 ``` 
 
 #### 2) Add your API key
@@ -71,6 +68,7 @@ RRTX_UrbanCanopyExplorer/
 ## Contact
 
 **Eugenie Huang**  
+Summer 2025 Intern | Geospatial Services | Information Technology | City of Round Rock, TX  
 Master’s Student in Cartography & Geographic Information Systems  
 University of Wisconsin–Madison  
 huang674@wisc.edu  
