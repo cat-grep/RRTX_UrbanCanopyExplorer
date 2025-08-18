@@ -102,15 +102,15 @@ export default function App() {
     return (
         <div className="app">
             <header className="banner">
-                <a className="logo" href="https://www.roundrocktexas.gov/">
+                <div className="logo">
                     <img
                         className="brandimg"
-                        src="https://www.roundrocktexas.gov/wp-content/uploads/2020/11/CORR_WEB_LOGO.png"
-                        alt="City of Round Rock"
+                        src="public/LiveOak.svg"
+                        alt="Live Oak"
                     />
-                </a>
+                </div>
 
-                <h1 className="brand">Urban Canopy Explorer</h1>
+                <h1 className="brand">Round Rock Urban Canopy Explorer</h1>
 
                 <a
                     className="btn-gh"

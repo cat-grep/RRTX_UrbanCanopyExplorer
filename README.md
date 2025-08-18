@@ -1,6 +1,10 @@
-# Round Rock TX Urban Canopy Explorer
+# Round Rock Urban Canopy Explorer
 
-Explore the urban tree canopy of Round Rock, Texas, remotely with this interactive map. Inspired by my summer internship on Monarch Tree Digitization, this app uses publicly available LiDAR data from the City of Round Rock to filter vegetation points. Built with React, ArcGIS Maps SDK, and Google Street View, it combines aerial imagery, canopy LiDAR, and street-level views, allowing anyone to explore trees without fieldwork.
+**Explore the tree canopy of Round Rock, Texas, remotely.**  
+
+This is a **student side project** built using publicly available LiDAR and imagery from the City of Round Rock. It is **not an official publication**.  
+
+Inspired by my summer internship on Monarch Tree Digitization, this app filters vegetation points from LiDAR datasets and integrates them into a web application built with React, ArcGIS Maps SDK, and Google Street View. By combining aerial imagery, canopy LiDAR, and street-level views, this app allows anyone to explore trees without fieldwork.
 
 [Live Demo✨](https://cat-grep.github.io/RRTX_UrbanCanopyExplorer/)
 
