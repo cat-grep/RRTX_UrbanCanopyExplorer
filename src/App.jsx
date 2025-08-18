@@ -6,6 +6,7 @@ import Graphic from "@arcgis/core/Graphic";
 import Point from "@arcgis/core/geometry/Point";
 import "@arcgis/core/assets/esri/themes/light/main.css";
 import StreetViewPanel from "./StreetViewPanel.jsx";
+import LiveOak from '../assets/LiveOak.svg';
 
 export default function App() {
     const viewDivRef = useRef(null);
@@ -103,11 +104,7 @@ export default function App() {
         <div className="app">
             <header className="banner">
                 <div className="logo">
-                    <img
-                        className="brandimg"
-                        src="public/LiveOak.svg"
-                        alt="Live Oak"
-                    />
+                    <img className="brandimg" src={LiveOak} alt="Live Oak" />
                 </div>
 
                 <h1 className="brand">Round Rock Urban Canopy Explorer</h1>
