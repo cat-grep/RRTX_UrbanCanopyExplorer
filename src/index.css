@@ -21,8 +21,8 @@ body,
   align-items: center;
   height: 56px;
   padding: 0 16px;
-  background: #849a75;
-  color: #000;
+  background: #DCDDD5;
+  color: #0F2C18;
   border-bottom: 1px solid #e3e3e3
 }
 
@@ -58,8 +58,8 @@ body,
 }
 
 .btn-gh:hover {
-  background: #849a75;
-  color: #000
+  color: #DCDDD5;
+  background: #0F2C18;
 }
 
 .btn-gh .gh {

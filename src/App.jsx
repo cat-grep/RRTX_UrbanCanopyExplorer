@@ -4,6 +4,7 @@ import SceneView from "@arcgis/core/views/SceneView";
 import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
 import Graphic from "@arcgis/core/Graphic";
 import Point from "@arcgis/core/geometry/Point";
+import Search from "@arcgis/core/widgets/Search";
 import "@arcgis/core/assets/esri/themes/light/main.css";
 import StreetViewPanel from "./StreetViewPanel.jsx";
 import LiveOak from '../assets/LiveOak.svg';
@@ -70,8 +71,38 @@ export default function App() {
             // Optionally pan to click
             view.goTo({ center: [longitude, latitude] }, { duration: 250 }).catch(() => { });
         });
-
+        
         view.when(() => upsertDot(svPos.lat, svPos.lng));
+
+        // Add Search widget to the SceneView UI
+        const search = new Search({
+            view,
+            // placeholder: "Search address or place",
+            // includeDefaultSources: true,   // default true
+            // popupEnabled: true,            // default true on SceneView
+        });
+        view.ui.add(search, { position: "top-left", index: 0 });
+
+        // When the user picks a result, move Street View + marker and pan the scene
+        const onSelect = search.on("select-result", (e) => {
+            const geom = e.result?.feature?.geometry;
+            if (!geom) return;
+
+            // get a point to use (points are typical; fall back to centroid/extent)
+            const pt =
+                geom.type === "point"
+                    ? geom
+                    : geom.extent?.center || geom.centroid;
+
+            if (!pt) return;
+
+            const lat = pt.latitude;
+            const lng = pt.longitude;
+
+            setSvPos({ lat, lng });             // drives StreetViewPanel
+            upsertDot(lat, lng);                // move your 3D marker
+            view.goTo({ center: [lng, lat] }, { duration: 250 }).catch(() => { });
+        });
 
         return () => {
             clickHandle.remove();
