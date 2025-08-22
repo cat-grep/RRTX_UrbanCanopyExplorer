@@ -22,8 +22,8 @@ body,
   align-items: center;
   height: 56px;
   padding: 0 16px;
-  background: #dad7cd;
-  color: #283618;
+  background: #2B4832;
+  color: #ffffff;
   border-bottom: 1px solid #e3e3e3;
   /* ← semicolon added */
   /* optional: keep header visible on scroll */
@@ -74,8 +74,8 @@ body,
 }
 
 .btn-gh:hover {
-  color: #dad7cd;
-  background: #283618;
+  color: #2B4832;
+  background: #ffffff;
 }
 
 /* Size the icon without needing a special class */
