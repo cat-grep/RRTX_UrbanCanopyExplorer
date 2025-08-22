@@ -5,11 +5,17 @@ import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
 import Graphic from "@arcgis/core/Graphic";
 import Point from "@arcgis/core/geometry/Point";
 import Search from "@arcgis/core/widgets/Search";
+import Legend from "@arcgis/core/widgets/Legend";
+import Expand from "@arcgis/core/widgets/Expand";
 import "@arcgis/core/assets/esri/themes/light/main.css";
 import StreetViewPanel from "./StreetViewPanel.jsx";
-import LiveOak from '../assets/LiveOak.svg';
+import tree_icon from '../assets/tree_icon.svg';
 
 export default function App() {
+
+    const searchExpandRef = useRef(null);
+    const legendExpandRef  = useRef(null);
+
     const viewDivRef = useRef(null);
     const viewRef = useRef(null);
 
@@ -74,42 +80,49 @@ export default function App() {
 
         view.when(() => upsertDot(svPos.lat, svPos.lng));
 
-        // Add Search widget to the SceneView UI
-        const search = new Search({
-            view,
-            // placeholder: "Search address or place",
-            // includeDefaultSources: true,   // default true
-            // popupEnabled: true,            // default true on SceneView
+        // --- Search ---
+        const search = new Search({ view });
+        const searchExpand = new Expand({
+        view,
+        content: search,
+        expanded: false,
+        expandIconClass: "esri-icon-search",
+        expandTooltip: "Search",
         });
-        view.ui.add(search, { position: "top-left", index: 0 });
+        view.ui.add(searchExpand, { position: "top-left", index: 0 });
+        searchExpandRef.current = search;
 
         // When the user picks a result, move Street View + marker and pan the scene
         const onSelect = search.on("select-result", (e) => {
             const geom = e.result?.feature?.geometry;
             if (!geom) return;
-
-            // get a point to use (points are typical; fall back to centroid/extent)
-            const pt =
-                geom.type === "point"
-                    ? geom
-                    : geom.extent?.center || geom.centroid;
-
+            const pt = geom.type === "point" ? geom : geom.extent?.center || geom.centroid;
             if (!pt) return;
-
-            const lat = pt.latitude;
-            const lng = pt.longitude;
-
-            setSvPos({ lat, lng });             // drives StreetViewPanel
-            upsertDot(lat, lng);                // move your 3D marker
-            view.goTo({ center: [lng, lat] }, { duration: 250 }).catch(() => { });
+            const lat = pt.latitude, lng = pt.longitude;
+            setSvPos({ lat, lng });
+            upsertDot(lat, lng);
+            view.goTo({ center: [lng, lat] }, { duration: 250 }).catch(() => {});
         });
+        
+        // --- Legend ---
+        const legend = new Legend({ view });
+        const legendExpand = new Expand({
+        view,
+        content: legend,
+        expanded: false,
+        expandIconClass: "esri-icon-legend",
+        expandTooltip: "Legend",
+        });
+        view.ui.add(legendExpand, { position: "bottom-left", index: 1 });
+        legendExpandRef.current = legend;
 
+        // cleanup
         return () => {
-            clickHandle.remove();
-            view.destroy();
-            viewRef.current = null;
-            dotLayerRef.current = null;
-            dotGraphicRef.current = null;
+        onSelect.remove();
+        view.destroy();
+        viewRef.current = null;
+        dotLayerRef.current = null;
+        dotGraphicRef.current = null;
         };
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -135,7 +148,7 @@ export default function App() {
         <div className="app">
             <header className="banner">
                 <div className="logo">
-                    <img className="brandimg" src={LiveOak} alt="Live Oak" />
+                    <img className="brandimg" src={tree_icon} alt="tree icon" />
                 </div>
 
                 <h1 className="brand">
