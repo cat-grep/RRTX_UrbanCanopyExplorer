@@ -4,7 +4,7 @@
 
 This is a **student side project** built using publicly available LiDAR and imagery from the City of Round Rock. It is **not an official publication**.  
 
-Inspired by my summer internship on Monarch Tree Digitization, this app filters vegetation points from LiDAR datasets and integrates them into a web application built with React, ArcGIS Maps SDK, and Google Street View. By combining aerial imagery, canopy LiDAR, and street-level views, this app allows anyone to explore trees without fieldwork.
+Inspired by my summer internship on Monarch Tree Survey, this React/Vite web app maps vegetation points (classification 5) to highlight canopy extent, using publicly available LiDAR data and imagery. It integrates ArcGIS Maps SDK for 3D exploration and Google Street View for ground-level context, allowing users to remotely explore trees without fieldwork.
 
 [Live Demo✨](https://cat-grep.github.io/RRTX_UrbanCanopyExplorer/)
 
