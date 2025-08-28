@@ -65,6 +65,28 @@ RRTX_UrbanCanopyExplorer/
 - **Street View API**
 [Google Maps JavaScript API – Street View](https://developers.google.com/maps/documentation/javascript/streetview)
 
+## Data Preprocessing: LiDAR Vegetation Filtering
+
+To build this dataset, I created a custom [PDAL](https://pdal.io/en/2.9.1/) workflow:
+1. Download & extract LAZ tiles from the Williamson County 2024 StratMap project.
+2. Convert LAZ → LAS for easier manipulation.
+3. Clip LAS to the City of Round Rock boundary.
+4. Filter by classification code 5 (high vegetation) to isolate canopy points.
+This filtered LAS dataset was then ingested into the 3D WebScene, making it possible to remotely visualize tree canopy extent and structure.
+
+You can see the full LiDAR processing script here: 
+👉 [LiDAR Vegetation Filter](https://github.com/cat-grep/LiDAR_VegetationFilter/)
+
+## Internship Connection
+
+This project extends my work as a Summer 2025 GIS Intern with the City of Round Rock.  
+During the internship, I helped digitize 300+ Monarch trees and linked them to parcel boundaries for enforcement of the city’s tree protection ordinance.  
+
+I documented the experience in a StoryMap here: 
+👉 [Making the Most of My Summer with the City of Round Rock](https://storymaps.arcgis.com/stories/ef608abad1854ababbfd869bf3115107)
+
+The Urban Canopy Explorer is a personal continuation of that work, exploring how LiDAR + street view can make canopy data more accessible to both professionals and the public.
+
 ## Contact
 
 **Eugenie Huang**  
